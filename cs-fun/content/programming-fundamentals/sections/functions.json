@@ -1,0 +1,145 @@
+{
+  "slug": "functions",
+  "title": "Functions",
+  "topicSlug": "programming-fundamentals",
+  "order": 4,
+  "estimatedTime": "30 min",
+  "difficulty": "beginner",
+  "blocks": [
+    {
+      "type": "paragraph",
+      "text": "A **function** is a named, reusable block of code that performs a specific task. Functions are the primary tool for organizing code, avoiding repetition, and building complex programs from simple parts."
+    },
+    {
+      "type": "callout",
+      "variant": "tip",
+      "title": "DRY Principle",
+      "text": "**Don't Repeat Yourself (DRY)** — if you find yourself writing the same code more than twice, it belongs in a function. Functions make your code shorter, easier to read, and easier to fix (change in one place, fixed everywhere)."
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "Defining and Calling Functions"
+    },
+    {
+      "type": "code",
+      "language": "python",
+      "title": "Basic function definition",
+      "code": "# Define a function with 'def'\ndef greet(name):           # 'name' is a parameter\n    message = f\"Hello, {name}!\"\n    return message         # return sends a value back\n\n# Call the function\nresult = greet(\"Alice\")   # 'Alice' is the argument\nprint(result)             # Hello, Alice!\n\n# Functions can be called many times with different inputs\nprint(greet(\"Bob\"))       # Hello, Bob!\nprint(greet(\"World\"))     # Hello, World!"
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "Parameters, Arguments & Return Values"
+    },
+    {
+      "type": "code",
+      "language": "python",
+      "title": "Parameters and return values",
+      "code": "# Multiple parameters\ndef add(a, b):\n    return a + b\n\nprint(add(3, 5))        # 8\nprint(add(10, -4))      # 6\n\n# Default parameter values\ndef power(base, exponent=2):    # exponent defaults to 2\n    return base ** exponent\n\nprint(power(3))         # 9  (3^2)\nprint(power(3, 3))      # 27 (3^3)\n\n# Multiple return values (as a tuple)\ndef min_max(numbers):\n    return min(numbers), max(numbers)\n\nlow, high = min_max([4, 2, 9, 1, 7])\nprint(f\"Min: {low}, Max: {high}\")   # Min: 1, Max: 9\n\n# No return value → returns None implicitly\ndef say_hello():\n    print(\"Hello!\")\n\nresult = say_hello()    # prints \"Hello!\"\nprint(result)           # None"
+    },
+    {
+      "type": "code",
+      "language": "javascript",
+      "title": "Functions in JavaScript",
+      "code": "// Function declaration\nfunction add(a, b) {\n    return a + b;\n}\n\n// Arrow function (modern, concise)\nconst multiply = (a, b) => a * b;\n\n// Arrow function with body\nconst greet = (name) => {\n    const message = `Hello, ${name}!`;\n    return message;\n};\n\nconsole.log(add(3, 5));           // 8\nconsole.log(multiply(4, 6));      // 24\nconsole.log(greet(\"Alice\"));      // Hello, Alice!\n\n// Default parameters\nfunction createUser(name, role = \"user\") {\n    return { name, role };\n}\nconsole.log(createUser(\"Bob\"));           // { name: 'Bob', role: 'user' }\nconsole.log(createUser(\"Admin\", \"admin\")); // { name: 'Admin', role: 'admin' }"
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "Scope — Where Variables Live"
+    },
+    {
+      "type": "paragraph",
+      "text": "**Scope** determines where a variable is accessible. Variables created inside a function are **local** — they exist only within that function and disappear when it returns."
+    },
+    {
+      "type": "code",
+      "language": "python",
+      "title": "Local vs global scope",
+      "code": "total = 100    # global variable — accessible everywhere\n\ndef calculate_tax(amount):\n    rate = 0.2    # local variable — only exists inside this function\n    tax = amount * rate\n    return tax\n\nprint(calculate_tax(50))   # 10.0\n# print(rate)              # NameError: 'rate' is not defined outside the function\nprint(total)               # 100 — global is accessible\n\n# Each function call gets its own local scope\ndef counter():\n    x = 0           # This x is local to each call\n    x += 1\n    return x\n\nprint(counter())   # 1\nprint(counter())   # 1 (not 2! each call starts fresh)"
+    },
+    {
+      "type": "callout",
+      "variant": "warning",
+      "title": "Avoid Global Variables",
+      "text": "Relying on global variables makes code hard to test and debug — any function can modify them unexpectedly. Prefer passing data **as arguments** and receiving results **via return values**."
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "Recursion — Functions That Call Themselves"
+    },
+    {
+      "type": "paragraph",
+      "text": "A **recursive** function solves a problem by breaking it into smaller versions of the same problem, until it reaches a **base case** that can be solved directly."
+    },
+    {
+      "type": "code",
+      "language": "python",
+      "title": "Factorial using recursion",
+      "code": "# factorial(n) = n × factorial(n-1)\n# factorial(0) = 1  ← base case\n\ndef factorial(n):\n    if n == 0:          # base case — stop recursing\n        return 1\n    return n * factorial(n - 1)   # recursive call\n\nprint(factorial(5))    # 120  (5 × 4 × 3 × 2 × 1)\nprint(factorial(0))    # 1\nprint(factorial(10))   # 3628800\n\n# Trace of factorial(4):\n# factorial(4) = 4 × factorial(3)\n# factorial(3) = 3 × factorial(2)\n# factorial(2) = 2 × factorial(1)\n# factorial(1) = 1 × factorial(0)\n# factorial(0) = 1  ← base case\n# Unwinds: 1 × 1 = 1 → 2×1=2 → 3×2=6 → 4×6=24"
+    },
+    {
+      "type": "callout",
+      "variant": "warning",
+      "title": "Always Define a Base Case",
+      "text": "Recursion without a base case causes **infinite recursion** and a stack overflow crash. Every recursive function MUST have at least one path that returns without making another recursive call."
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "Higher-Order Functions"
+    },
+    {
+      "type": "paragraph",
+      "text": "In Python and JavaScript, functions are **first-class values** — you can pass them as arguments, return them from other functions, and store them in variables."
+    },
+    {
+      "type": "code",
+      "language": "python",
+      "title": "Functions as arguments — map, filter, sorted",
+      "code": "numbers = [1, 2, 3, 4, 5, 6]\n\n# map — apply a function to every element\nsquares = list(map(lambda x: x ** 2, numbers))\nprint(squares)    # [1, 4, 9, 16, 25, 36]\n\n# filter — keep elements where function returns True\nevens = list(filter(lambda x: x % 2 == 0, numbers))\nprint(evens)      # [2, 4, 6]\n\n# sorted with a key function\nwords = [\"banana\", \"fig\", \"apple\", \"kiwi\"]\nsorted_by_length = sorted(words, key=len)\nprint(sorted_by_length)   # ['fig', 'kiwi', 'apple', 'banana']\n\n# List comprehension (Pythonic alternative to map/filter)\nsquares = [x**2 for x in numbers]          # same as map\nevens = [x for x in numbers if x % 2 == 0] # same as filter"
+    },
+    {
+      "type": "key-points",
+      "points": [
+        "Functions encapsulate reusable logic — write once, call many times",
+        "Parameters are inputs; return values are outputs",
+        "Local variables only exist inside their function — they don't leak out",
+        "Recursion solves problems by breaking them into smaller identical sub-problems — always define a base case",
+        "Functions are first-class values in Python/JS — they can be passed and returned like any other value"
+      ]
+    },
+    {
+      "type": "interview",
+      "questions": [
+        {
+          "question": "What is the difference between a parameter and an argument?",
+          "answer": "A **parameter** is the variable name in the function definition (`def greet(name)`). An **argument** is the actual value you pass when calling the function (`greet('Alice')`). Parameters are placeholders; arguments are the real data."
+        },
+        {
+          "question": "What happens if a recursive function has no base case?",
+          "answer": "It calls itself forever, creating an ever-growing call stack. Python raises a `RecursionError: maximum recursion depth exceeded`. JavaScript will throw a `RangeError: Maximum call stack size exceeded`. The program crashes. Always define a base case that stops the recursion."
+        }
+      ]
+    },
+    {
+      "type": "quiz",
+      "questions": [
+        {
+          "question": "What does this function return: `def f(x): return x * 2`  when called as `f(f(3))`?",
+          "options": ["6", "12", "9", "3"],
+          "correct": 1,
+          "explanation": "f(3) = 3 × 2 = 6. Then f(6) = 6 × 2 = 12. The inner call is evaluated first, then its result is passed to the outer call."
+        },
+        {
+          "question": "What is the output of factorial(3) given: def factorial(n): return 1 if n == 0 else n * factorial(n-1)?",
+          "options": ["1", "3", "6", "9"],
+          "correct": 2,
+          "explanation": "factorial(3) = 3 × factorial(2) = 3 × 2 × factorial(1) = 3 × 2 × 1 × factorial(0) = 3 × 2 × 1 × 1 = 6."
+        }
+      ]
+    }
+  ]
+}

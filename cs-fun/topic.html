@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CSLearn</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/main.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github-dark.min.css" id="hljs-theme" />
+</head>
+<body class="topic-page">
+
+  <!-- Mobile overlay -->
+  <div class="sidebar-overlay" id="sidebar-overlay"></div>
+
+  <!-- Sidebar -->
+  <aside class="sidebar" id="sidebar">
+    <div class="sidebar-top">
+      <a href="index.html" class="sidebar-logo">
+        <span class="logo-bracket">&lt;/&gt;</span>
+        <span>CSLearn</span>
+      </a>
+      <button class="sidebar-close" id="sidebar-close" aria-label="Close sidebar">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
+    </div>
+
+    <div class="sidebar-search-wrap">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+      <input type="search" id="sidebar-search" class="sidebar-search" placeholder="Search sections…" autocomplete="off" />
+    </div>
+
+    <div class="sidebar-topic-info" id="sidebar-topic-info"></div>
+
+    <nav class="sidebar-nav" id="sidebar-nav">
+      <div class="sidebar-loading">Loading…</div>
+    </nav>
+
+    <div class="sidebar-footer">
+      <a href="index.html" class="sidebar-all-topics">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"/></svg>
+        All Topics
+      </a>
+      <button class="theme-toggle theme-toggle-sm" id="theme-toggle" title="Toggle theme">
+        <svg class="icon-sun" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/></svg>
+        <svg class="icon-moon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+      </button>
+    </div>
+  </aside>
+
+  <!-- Main -->
+  <div class="page-shell">
+
+    <header class="page-header">
+      <button class="menu-toggle" id="menu-toggle" aria-label="Open sidebar">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+      </button>
+      <nav class="breadcrumbs" id="breadcrumbs" aria-label="Breadcrumb"></nav>
+      <div class="page-header-right">
+        <span class="reading-time" id="reading-time"></span>
+        <div class="progress-pill" id="progress-pill"></div>
+      </div>
+    </header>
+
+    <div class="content-shell">
+      <article class="content-area" id="content-area">
+        <div class="content-loading">
+          <div class="spinner"></div>
+          <span>Loading content…</span>
+        </div>
+      </article>
+
+      <aside class="toc-panel" id="toc-panel">
+        <div class="toc-header">On this page</div>
+        <nav class="toc-nav" id="toc-nav"></nav>
+        <div class="toc-progress">
+          <div class="toc-progress-label">Topic Progress</div>
+          <div class="toc-progress-bar-wrap">
+            <div class="toc-progress-bar" id="toc-progress-bar"></div>
+          </div>
+          <div class="toc-progress-text" id="toc-progress-text">0%</div>
+        </div>
+      </aside>
+    </div>
+
+    <nav class="section-pagination" id="section-pagination"></nav>
+  </div>
+
+  <!-- Quiz modal -->
+  <div class="modal-overlay hidden" id="quiz-modal">
+    <div class="modal">
+      <div class="modal-header">
+        <h3 class="modal-title" id="quiz-modal-title">Quiz</h3>
+        <button class="modal-close" id="quiz-modal-close">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+        </button>
+      </div>
+      <div class="modal-body" id="quiz-modal-body"></div>
+    </div>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+  <script type="module" src="js/theme.js"></script>
+  <script type="module" src="js/topic.js"></script>
+</body>
+</html>

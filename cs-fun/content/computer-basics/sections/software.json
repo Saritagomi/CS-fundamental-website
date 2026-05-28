@@ -1,0 +1,147 @@
+{
+  "slug": "software",
+  "title": "Software & Operating Systems",
+  "topicSlug": "computer-basics",
+  "order": 3,
+  "estimatedTime": "20 min",
+  "difficulty": "beginner",
+  "blocks": [
+    {
+      "type": "paragraph",
+      "text": "**Software** is the set of instructions that tells hardware what to do. Without software, hardware is just an expensive paperweight. Software is broadly divided into **system software** (manages the hardware) and **application software** (solves user problems)."
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "System Software"
+    },
+    {
+      "type": "paragraph",
+      "text": "System software manages and controls the computer hardware so that application software can function. The most important piece of system software is the **Operating System (OS)**."
+    },
+    {
+      "type": "definition",
+      "term": "Operating System (OS)",
+      "definition": "Software that manages hardware resources (CPU, memory, storage, I/O) and provides a platform for application software to run. Examples: **Windows**, **macOS**, **Linux**, **Android**, **iOS**."
+    },
+    {
+      "type": "heading",
+      "level": 3,
+      "text": "What Does an OS Do?"
+    },
+    {
+      "type": "list",
+      "style": "unordered",
+      "items": [
+        "**Process Management** — Schedules which program uses the CPU and when",
+        "**Memory Management** — Allocates RAM to processes, handles virtual memory",
+        "**File System Management** — Organizes data into files and folders on storage devices",
+        "**Device Drivers** — Provides standardized interfaces for hardware (keyboard, GPU, WiFi)",
+        "**Security & Access Control** — User accounts, permissions, sandboxing",
+        "**User Interface** — GUI (graphical) or CLI (command line) for interaction"
+      ]
+    },
+    {
+      "type": "table",
+      "headers": ["Operating System", "Used By", "Kernel Type", "Notable Feature"],
+      "rows": [
+        ["Windows 11",    "PCs, gaming, enterprise",    "Windows NT",     "Huge software ecosystem"],
+        ["macOS Sequoia", "Apple Mac computers",         "XNU (Unix-like)","Tight hardware/software integration"],
+        ["Linux",         "Servers, devs, embedded",     "Linux kernel",   "Open source, highly customizable"],
+        ["Android",       "Most smartphones worldwide",   "Linux-based",    "Largest mobile OS market share"],
+        ["iOS/iPadOS",    "Apple iPhone/iPad",            "XNU",            "Strong security, privacy focus"]
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "Application Software"
+    },
+    {
+      "type": "paragraph",
+      "text": "Application software runs on top of the OS to help users accomplish specific tasks. These are the programs you use every day."
+    },
+    {
+      "type": "list",
+      "style": "unordered",
+      "items": [
+        { "label": "Productivity", "desc": "Microsoft Word, Google Docs, Excel" },
+        { "label": "Browsers", "desc": "Chrome, Firefox, Safari — render web pages" },
+        { "label": "Development Tools", "desc": "VS Code, IntelliJ IDEA, compilers, debuggers" },
+        { "label": "Media", "desc": "VLC, Spotify, Photoshop, video editors" },
+        { "label": "Games", "desc": "Complex applications that push CPU/GPU to the limit" },
+        { "label": "Databases", "desc": "PostgreSQL, MySQL — store and query structured data" }
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "How Code Becomes Runnable"
+    },
+    {
+      "type": "paragraph",
+      "text": "You write code in a **high-level language** (Python, Java, C++) that humans can read. But CPUs only understand **machine code** — sequences of 0s and 1s. Something must bridge this gap."
+    },
+    {
+      "type": "tabs",
+      "tabs": [
+        {
+          "label": "Compiled Languages",
+          "content": "A **compiler** translates your entire source code to machine code **before** execution. The result is a binary executable. Examples: **C, C++, Rust, Go**. Compiled programs are typically very fast because the translation overhead happens once.",
+          "code": "// C — compiled to native binary\n#include <stdio.h>\nint main() {\n    printf(\"Hello, World!\\n\");\n    return 0;\n}",
+          "language": "c"
+        },
+        {
+          "label": "Interpreted Languages",
+          "content": "An **interpreter** reads and executes source code **line by line** at runtime. No separate compilation step needed. Examples: **Python, Ruby, JavaScript (traditionally)**. Easier to develop and debug but historically slower.",
+          "code": "# Python — interpreted line by line\nprint(\"Hello, World!\")",
+          "language": "python"
+        },
+        {
+          "label": "Bytecode (JVM/JIT)",
+          "content": "Languages like **Java** and **C#** compile to an intermediate **bytecode** that runs on a virtual machine (JVM). A **Just-In-Time (JIT)** compiler then compiles hot bytecode paths to native machine code at runtime — combining portability with near-native speed.",
+          "code": "// Java — compiled to bytecode, run on JVM\npublic class Hello {\n    public static void main(String[] args) {\n        System.out.println(\"Hello, World!\");\n    }\n}",
+          "language": "java"
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "info",
+      "title": "Abstraction Layers",
+      "text": "Modern computing uses layers of abstraction: **Hardware → Firmware/BIOS → OS Kernel → System Libraries → Runtime → Application**. Each layer hides complexity from the layer above it."
+    },
+    {
+      "type": "key-points",
+      "points": [
+        "Software is divided into system software (OS, drivers) and application software",
+        "The OS manages CPU time, memory, files, devices, and security",
+        "Compiled languages translate to machine code ahead of time; interpreted languages translate at runtime",
+        "Java and similar languages use bytecode + JIT compilation for portability and speed",
+        "Abstraction layers hide hardware complexity from application developers"
+      ]
+    },
+    {
+      "type": "quiz",
+      "questions": [
+        {
+          "question": "Which of the following is an example of system software?",
+          "options": ["Microsoft Word", "Google Chrome", "Linux Kernel", "Spotify"],
+          "correct": 2,
+          "explanation": "The Linux Kernel is system software — it directly manages hardware resources. Word, Chrome, and Spotify are application software that run on top of the OS."
+        },
+        {
+          "question": "What is the main difference between a compiler and an interpreter?",
+          "options": [
+            "Compilers are faster at runtime; interpreters translate the whole program first",
+            "Compilers translate the entire program before execution; interpreters execute line by line",
+            "Interpreters only work with C++; compilers work with Python",
+            "There is no meaningful difference"
+          ],
+          "correct": 1,
+          "explanation": "A compiler translates the complete source code to machine code before execution. An interpreter reads and executes source code line by line during runtime."
+        }
+      ]
+    }
+  ]
+}

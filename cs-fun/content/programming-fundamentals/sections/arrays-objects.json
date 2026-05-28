@@ -1,0 +1,133 @@
+{
+  "slug": "arrays-objects",
+  "title": "Arrays & Objects",
+  "topicSlug": "programming-fundamentals",
+  "order": 5,
+  "estimatedTime": "25 min",
+  "difficulty": "beginner",
+  "blocks": [
+    {
+      "type": "paragraph",
+      "text": "**Arrays** (called Lists in Python) store ordered collections of values. **Objects** (Dictionaries in Python, Objects in JavaScript) store key-value pairs. These two structures are the foundation of almost all data manipulation in programming."
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "Arrays / Lists"
+    },
+    {
+      "type": "code",
+      "language": "python",
+      "title": "Python Lists — creation and access",
+      "code": "# Creating lists\nfruits = [\"apple\", \"banana\", \"cherry\"]\nnumbers = [1, 2, 3, 4, 5]\nmixed = [1, \"hello\", True, 3.14]    # lists can mix types\nempty = []\n\n# Indexing (0-based)\nprint(fruits[0])     # \"apple\"   — first element\nprint(fruits[2])     # \"cherry\"  — third element\nprint(fruits[-1])    # \"cherry\"  — last element (negative index)\nprint(fruits[-2])    # \"banana\"  — second to last\n\n# Slicing: list[start:stop:step]\nprint(fruits[0:2])   # ['apple', 'banana']  (stop is exclusive)\nprint(fruits[1:])    # ['banana', 'cherry']  (from index 1 to end)\nprint(fruits[:2])    # ['apple', 'banana']   (from start to index 2)\nprint(numbers[::2])  # [1, 3, 5]             (every other element)"
+    },
+    {
+      "type": "code",
+      "language": "python",
+      "title": "Common List operations",
+      "code": "fruits = [\"apple\", \"banana\"]\n\n# Adding elements\nfruits.append(\"cherry\")       # ['apple', 'banana', 'cherry']\nfruits.insert(1, \"blueberry\") # ['apple', 'blueberry', 'banana', 'cherry']\n\n# Removing elements\nfruits.remove(\"banana\")       # removes first occurrence\npopped = fruits.pop()         # removes & returns last element\npopped_i = fruits.pop(0)      # removes & returns element at index 0\n\n# Checking membership\nprint(\"apple\" in fruits)   # True or False\nprint(\"mango\" not in fruits)  # True\n\n# Length\nprint(len(fruits))   # number of elements\n\n# Sorting\nnums = [3, 1, 4, 1, 5, 9, 2, 6]\nnums.sort()                   # sorts in-place: [1, 1, 2, 3, 4, 5, 6, 9]\nsorted_copy = sorted(nums)    # returns new sorted list, original unchanged\nreversed_list = nums[::-1]    # reversed copy using slice\n\n# Joining list elements into a string\nwords = [\"Hello\", \"world\"]\nsentence = \" \".join(words)    # \"Hello world\"\ncsv = \",\".join([\"a\", \"b\", \"c\"])  # \"a,b,c\""
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "Iterating Over Lists"
+    },
+    {
+      "type": "code",
+      "language": "python",
+      "title": "Looping and list comprehensions",
+      "code": "scores = [85, 92, 78, 95, 88]\n\n# Basic for loop\nfor score in scores:\n    print(score)\n\n# With index\nfor i, score in enumerate(scores):\n    print(f\"Student {i+1}: {score}\")\n\n# List comprehension — create new list from existing\ndoubled = [s * 2 for s in scores]\nhigh_scores = [s for s in scores if s >= 90]   # [92, 95]\nlabels = [\"Pass\" if s >= 60 else \"Fail\" for s in scores]\n\n# Sum, min, max\nprint(sum(scores))    # 438\nprint(min(scores))    # 78\nprint(max(scores))    # 95\nprint(sum(scores) / len(scores))  # average: 87.6"
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "Dictionaries / Objects"
+    },
+    {
+      "type": "paragraph",
+      "text": "A **dictionary** (Python) or **object** (JavaScript) maps unique **keys** to **values**. Use them when you want to look up data by a meaningful name rather than a position."
+    },
+    {
+      "type": "code",
+      "language": "python",
+      "title": "Python Dictionaries",
+      "code": "# Creating a dictionary\nuser = {\n    \"name\": \"Alice\",\n    \"age\": 28,\n    \"email\": \"alice@example.com\",\n    \"is_active\": True\n}\n\n# Accessing values\nprint(user[\"name\"])          # \"Alice\"\nprint(user.get(\"age\"))       # 28\nprint(user.get(\"phone\", \"N/A\"))  # \"N/A\" — default if key missing\n\n# Modifying\nuser[\"age\"] = 29             # update existing key\nuser[\"city\"] = \"Berlin\"     # add new key\ndel user[\"email\"]           # remove a key\n\n# Checking keys\nprint(\"name\" in user)        # True\nprint(\"phone\" in user)       # False\n\n# Iterating\nfor key, value in user.items():\n    print(f\"{key}: {value}\")\n\n# All keys, all values\nprint(user.keys())     # dict_keys(['name', 'age', ...])\nprint(user.values())   # dict_values(['Alice', 29, ...])"
+    },
+    {
+      "type": "code",
+      "language": "javascript",
+      "title": "JavaScript Objects",
+      "code": "// Creating an object\nconst user = {\n  name: \"Alice\",\n  age: 28,\n  email: \"alice@example.com\",\n  isActive: true\n};\n\n// Accessing properties\nconsole.log(user.name);         // \"Alice\" — dot notation\nconsole.log(user[\"age\"]);       // 28 — bracket notation\nconsole.log(user.phone ?? \"N/A\"); // \"N/A\" — nullish coalescing\n\n// Modifying\nuser.age = 29;                  // update\nuser.city = \"Berlin\";           // add new\ndelete user.email;              // remove\n\n// Checking keys\nconsole.log(\"name\" in user);    // true\n\n// Iterating\nfor (const [key, value] of Object.entries(user)) {\n  console.log(`${key}: ${value}`);\n}\n\n// Destructuring — extract to variables\nconst { name, age } = user;\nconsole.log(name, age);  // Alice 29"
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "Arrays of Objects — The Real-World Pattern"
+    },
+    {
+      "type": "code",
+      "language": "python",
+      "title": "The most common data structure in real programs",
+      "code": "# A list of user objects (like data from a database/API)\nusers = [\n    {\"id\": 1, \"name\": \"Alice\", \"score\": 95, \"active\": True},\n    {\"id\": 2, \"name\": \"Bob\",   \"score\": 82, \"active\": False},\n    {\"id\": 3, \"name\": \"Carol\", \"score\": 91, \"active\": True},\n    {\"id\": 4, \"name\": \"Dave\",  \"score\": 67, \"active\": True},\n]\n\n# Find a user by ID\ndef find_by_id(users, target_id):\n    for user in users:\n        if user[\"id\"] == target_id:\n            return user\n    return None\n\nprint(find_by_id(users, 3))  # {'id': 3, 'name': 'Carol', ...}\n\n# Filter active users\nactive_users = [u for u in users if u[\"active\"]]\nprint(len(active_users))     # 3\n\n# Sort by score (descending)\nranked = sorted(users, key=lambda u: u[\"score\"], reverse=True)\nfor rank, u in enumerate(ranked, 1):\n    print(f\"{rank}. {u['name']}: {u['score']}\")\n# 1. Alice: 95\n# 2. Carol: 91\n# 3. Bob: 82\n# 4. Dave: 67\n\n# Average score\navg = sum(u[\"score\"] for u in users) / len(users)\nprint(f\"Average: {avg:.1f}\")  # Average: 83.8"
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "Sets & Tuples (Bonus Types)"
+    },
+    {
+      "type": "accordion",
+      "items": [
+        {
+          "title": "Tuple — immutable ordered collection",
+          "content": "A tuple is like a list but **cannot be changed** after creation. Use tuples for data that shouldn't change (coordinates, RGB colors, database rows). Tuples are slightly faster than lists.\n\n```python\npoint = (3, 4)           # x=3, y=4\ncolor = (255, 0, 128)    # RGB\nx, y = point             # unpacking\nprint(x, y)              # 3  4\n```"
+        },
+        {
+          "title": "Set — unordered collection of unique values",
+          "content": "A set stores unique values only — duplicates are automatically removed. Great for membership testing (much faster than lists) and set operations (union, intersection).\n\n```python\ntags = {\"python\", \"code\", \"python\", \"learn\"}\nprint(tags)  # {'python', 'code', 'learn'} — no duplicates\n\na = {1, 2, 3, 4}\nb = {3, 4, 5, 6}\nprint(a & b)  # {3, 4}  — intersection\nprint(a | b)  # {1,2,3,4,5,6} — union\nprint(a - b)  # {1, 2}  — difference\n```"
+        }
+      ]
+    },
+    {
+      "type": "key-points",
+      "points": [
+        "Lists/Arrays store ordered data accessed by index (0-based)",
+        "Negative indexing: `[-1]` is the last element",
+        "Slicing `[start:stop:step]` extracts sublists without modifying the original",
+        "Dictionaries/Objects map keys to values — use for structured, named data",
+        "Arrays of objects is the most common real-world data pattern (APIs, databases)",
+        "Sets automatically remove duplicates and support fast membership tests"
+      ]
+    },
+    {
+      "type": "quiz",
+      "questions": [
+        {
+          "question": "Given `arr = [10, 20, 30, 40, 50]`, what does `arr[-2]` return?",
+          "options": ["20", "30", "40", "50"],
+          "correct": 2,
+          "explanation": "Negative indexing counts from the end. arr[-1] = 50 (last), arr[-2] = 40 (second to last), arr[-3] = 30, etc."
+        },
+        {
+          "question": "What is the output of `{1, 2, 2, 3, 3, 3}` in Python?",
+          "options": ["{1, 2, 2, 3, 3, 3}", "{1, 2, 3}", "[1, 2, 3]", "Error"],
+          "correct": 1,
+          "explanation": "A set automatically removes duplicate values. {1, 2, 2, 3, 3, 3} becomes {1, 2, 3}. Note that sets are unordered — the display order may vary."
+        }
+      ]
+    },
+    {
+      "type": "interview",
+      "questions": [
+        {
+          "question": "What is the time complexity of checking if an element exists in a list vs a set?",
+          "answer": "**List**: O(n) — Python must scan every element until it finds a match (linear search). **Set**: O(1) amortized — sets use a hash table internally, so membership testing is near-instant regardless of size. For large collections where you frequently check membership, always prefer a set over a list."
+        },
+        {
+          "question": "When would you use a dictionary instead of a list?",
+          "answer": "Use a **dictionary** when: (1) you need to look up items by a meaningful key (name, ID, category) rather than by position; (2) the data is naturally key-value structured (user profile, configuration settings, word counts); (3) you need O(1) lookups. Use a **list** when order matters, you need indexed access, or you're iterating sequentially."
+        }
+      ]
+    }
+  ]
+}

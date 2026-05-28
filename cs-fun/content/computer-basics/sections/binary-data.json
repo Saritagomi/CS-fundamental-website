@@ -1,0 +1,176 @@
+{
+  "slug": "binary-data",
+  "title": "Binary & Data Representation",
+  "topicSlug": "computer-basics",
+  "order": 5,
+  "estimatedTime": "25 min",
+  "difficulty": "beginner",
+  "blocks": [
+    {
+      "type": "paragraph",
+      "text": "Computers store and process everything as **binary** — sequences of 0s and 1s. Text, images, audio, video, code — it all comes down to billions of these two-state signals. Understanding binary is foundational to all of computing."
+    },
+    {
+      "type": "callout",
+      "variant": "info",
+      "title": "Why Binary?",
+      "text": "Transistors — the fundamental building blocks of CPUs and memory — have two reliable states: **on** (1) and **off** (0). This makes binary natural for electronics. It's also mathematically robust and simple to design circuits around."
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "Bits, Bytes, and Beyond"
+    },
+    {
+      "type": "table",
+      "headers": ["Unit", "Size", "Example"],
+      "rows": [
+        ["Bit",      "1 binary digit (0 or 1)",  "1"],
+        ["Nibble",   "4 bits",                   "1010"],
+        ["Byte",     "8 bits",                   "01000001 = 'A'"],
+        ["Kilobyte", "1,024 bytes",               "A short text file"],
+        ["Megabyte", "1,024 KB",                  "A high-res photo"],
+        ["Gigabyte", "1,024 MB",                  "A movie file"],
+        ["Terabyte", "1,024 GB",                  "Large hard drive"]
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "Understanding Binary Numbers"
+    },
+    {
+      "type": "paragraph",
+      "text": "Binary is **base-2** — each digit position represents a power of 2, just as each digit in our decimal system represents a power of 10."
+    },
+    {
+      "type": "code",
+      "language": "plaintext",
+      "title": "Binary Position Values",
+      "code": "Position:  7    6    5    4    3    2    1    0\nPower:     2^7  2^6  2^5  2^4  2^3  2^2  2^1  2^0\nValue:     128   64   32   16    8    4    2    1\n\nExample: 01000001\n  = 0×128 + 1×64 + 0×32 + 0×16 + 0×8 + 0×4 + 0×2 + 1×1\n  = 64 + 1\n  = 65  ← This is the ASCII code for 'A'"
+    },
+    {
+      "type": "code",
+      "language": "python",
+      "title": "Binary conversions in Python",
+      "code": "# Decimal to binary\nprint(bin(65))     # '0b1000001'\nprint(bin(255))    # '0b11111111'\nprint(bin(0))      # '0b0'\n\n# Binary to decimal\nprint(int('01000001', 2))  # 65\nprint(int('11111111', 2))  # 255\n\n# Manual conversion\ndef to_binary(n):\n    if n == 0:\n        return '0'\n    bits = []\n    while n > 0:\n        bits.append(str(n % 2))\n        n //= 2\n    return ''.join(reversed(bits))\n\nprint(to_binary(65))   # '1000001'\nprint(to_binary(13))   # '1101'"
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "Hexadecimal — Binary's Shorthand"
+    },
+    {
+      "type": "paragraph",
+      "text": "**Hexadecimal (hex)** is base-16, using digits 0–9 and letters A–F. One hex digit represents exactly 4 binary bits (a nibble), making it a compact way to write binary data."
+    },
+    {
+      "type": "table",
+      "headers": ["Decimal", "Binary", "Hex"],
+      "rows": [
+        ["0",  "0000", "0"],
+        ["1",  "0001", "1"],
+        ["9",  "1001", "9"],
+        ["10", "1010", "A"],
+        ["11", "1011", "B"],
+        ["15", "1111", "F"],
+        ["16", "0001 0000", "10"],
+        ["255","1111 1111", "FF"]
+      ]
+    },
+    {
+      "type": "code",
+      "language": "python",
+      "title": "Hex in Python",
+      "code": "# Decimal to hex\nprint(hex(255))    # '0xff'\nprint(hex(16))     # '0x10'\nprint(hex(65))     # '0x41'\n\n# Hex to decimal\nprint(int('FF', 16))   # 255\nprint(int('41', 16))   # 65\n\n# You see hex in: memory addresses, colors, byte dumps\ncolor_red = 0xFF0000  # RGB: Red=255, Green=0, Blue=0\nprint(color_red)       # 16711680"
+    },
+    {
+      "type": "callout",
+      "variant": "tip",
+      "title": "Where You See Hex",
+      "text": "Hex is everywhere in computing: **memory addresses** (`0x7fff5fbff8a0`), **web colors** (`#FF5733`), **cryptographic hashes** (`a3f2...`), **MAC addresses** (`00:1A:2B:3C:4D:5E`), file signatures (magic bytes)."
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "How Text Is Stored — ASCII & Unicode"
+    },
+    {
+      "type": "paragraph",
+      "text": "Computers need a standard way to map binary numbers to characters. Two major standards define this:"
+    },
+    {
+      "type": "tabs",
+      "tabs": [
+        {
+          "label": "ASCII",
+          "content": "**ASCII** (American Standard Code for Information Interchange, 1963) uses 7 bits to represent 128 characters: uppercase/lowercase letters, digits, punctuation, and control characters. 'A' = 65, 'a' = 97, '0' = 48. ASCII only covers basic English and has no support for accented characters, non-Latin scripts, or emoji."
+        },
+        {
+          "label": "Unicode / UTF-8",
+          "content": "**Unicode** was created to represent every character in every human language — over 140,000 characters. **UTF-8** is the dominant encoding: it uses 1–4 bytes per character. ASCII characters still use 1 byte (backwards compatible). Emoji, Chinese, Arabic, mathematical symbols — all encoded in UTF-8."
+        }
+      ]
+    },
+    {
+      "type": "code",
+      "language": "python",
+      "title": "Characters and their binary representations",
+      "code": "# ASCII / Unicode values\nprint(ord('A'))      # 65\nprint(ord('a'))      # 97\nprint(ord('0'))      # 48\nprint(ord('😀'))    # 128512\n\n# Character from number\nprint(chr(65))       # 'A'\nprint(chr(128512))   # '😀'\n\n# UTF-8 encoding (bytes)\nprint('A'.encode('utf-8'))         # b'A'  (1 byte)\nprint('é'.encode('utf-8'))         # b'\\xc3\\xa9' (2 bytes)\nprint('中'.encode('utf-8'))        # b'\\xe4\\xb8\\xad' (3 bytes)\nprint('😀'.encode('utf-8'))       # b'\\xf0\\x9f\\x98\\x80' (4 bytes)"
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "How Numbers Are Stored"
+    },
+    {
+      "type": "accordion",
+      "items": [
+        {
+          "title": "Integers — Two's Complement",
+          "content": "Signed integers use **two's complement** to represent negative numbers. In an 8-bit integer: 0–127 are positive (0000 0000 to 0111 1111), and 128–255 represent -128 to -1 (1000 0000 to 1111 1111). To negate a number: flip all bits, then add 1. This makes arithmetic circuits simple — the same ADD instruction works for positive and negative numbers."
+        },
+        {
+          "title": "Floating-Point — IEEE 754",
+          "content": "Real numbers (like 3.14) are stored using the **IEEE 754** standard. A 32-bit float has: 1 sign bit + 8 exponent bits + 23 mantissa bits. This allows a huge range of values but with limited precision. This is why `0.1 + 0.2 !== 0.3` in most languages — it's a base-2 representation issue, not a bug."
+        },
+        {
+          "title": "Boolean — 1 or 0",
+          "content": "A boolean (true/false) needs only 1 bit logically, but is typically stored as 1 byte for memory alignment reasons. In C: `true` = 1, `false` = 0. Logical operators AND, OR, NOT, XOR operate on individual bits and entire integers (bitwise operations)."
+        }
+      ]
+    },
+    {
+      "type": "key-points",
+      "points": [
+        "All data in a computer is stored as binary (0s and 1s)",
+        "1 byte = 8 bits. One hex digit represents 4 bits",
+        "ASCII maps 128 characters to 7-bit codes; Unicode/UTF-8 supports all of humanity's scripts",
+        "Integers use two's complement for signed representation; floats use IEEE 754",
+        "Hex is used as a human-readable shorthand for binary in addresses, colors, and byte dumps"
+      ]
+    },
+    {
+      "type": "quiz",
+      "questions": [
+        {
+          "question": "What is the decimal value of the binary number 1101?",
+          "options": ["11", "13", "15", "9"],
+          "correct": 1,
+          "explanation": "1101 in binary = 1×8 + 1×4 + 0×2 + 1×1 = 8 + 4 + 0 + 1 = 13."
+        },
+        {
+          "question": "Why does 0.1 + 0.2 not equal exactly 0.3 in most programming languages?",
+          "options": [
+            "It's a bug in all programming languages",
+            "Floating-point numbers use base-2, which cannot represent 0.1 exactly",
+            "The CPU rounds to the nearest integer",
+            "ASCII encoding causes the error"
+          ],
+          "correct": 1,
+          "explanation": "0.1 and 0.2 cannot be represented exactly in binary (base-2) floating-point, similar to how 1/3 cannot be expressed exactly in decimal. The IEEE 754 standard stores an approximation, leading to small rounding errors."
+        }
+      ]
+    }
+  ]
+}

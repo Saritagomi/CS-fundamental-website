@@ -1,0 +1,140 @@
+{
+  "slug": "variables-data-types",
+  "title": "Variables & Data Types",
+  "topicSlug": "programming-fundamentals",
+  "order": 2,
+  "estimatedTime": "25 min",
+  "difficulty": "beginner",
+  "blocks": [
+    {
+      "type": "paragraph",
+      "text": "A **variable** is a named container that stores a value in memory. Data types tell the computer what kind of value is stored and what operations are valid on it. These are the atoms of any program."
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "Variables — Named Memory Slots"
+    },
+    {
+      "type": "code",
+      "language": "python",
+      "title": "Declaring and using variables",
+      "code": "# Python — dynamically typed (no explicit type declaration)\nname = \"Alice\"          # str\nage = 25                # int\nheight = 1.75           # float\nis_student = True       # bool\n\nprint(name)     # Alice\nprint(age + 5)  # 30\n\n# Variables can be reassigned (even to different types in Python)\nage = \"twenty-five\"   # now it's a string — valid in Python"
+    },
+    {
+      "type": "code",
+      "language": "javascript",
+      "title": "Variables in JavaScript",
+      "code": "// JavaScript — three ways to declare variables\nconst name = \"Alice\";   // const: cannot be reassigned\nlet age = 25;           // let: block-scoped, can be reassigned\nvar city = \"Berlin\";    // var: old, function-scoped (avoid in modern code)\n\nage = 26;               // OK — let can be reassigned\n// name = \"Bob\";        // ERROR — const cannot be reassigned\n\nconsole.log(`${name} is ${age} years old`);\n// Output: Alice is 26 years old"
+    },
+    {
+      "type": "callout",
+      "variant": "tip",
+      "title": "Naming Conventions",
+      "text": "Use **descriptive names**: `userAge` not `ua`. Use **camelCase** in JavaScript/Java (`firstName`), **snake_case** in Python (`first_name`). Never use single letters except loop counters (`i`, `j`, `k`)."
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "Primitive Data Types"
+    },
+    {
+      "type": "table",
+      "headers": ["Type", "Description", "Example Values", "Python", "JavaScript"],
+      "rows": [
+        ["Integer", "Whole numbers, positive or negative",  "42, -7, 0",        "`int`",   "`Number`"],
+        ["Float",   "Numbers with decimal points",           "3.14, -0.5, 1e10", "`float`", "`Number`"],
+        ["String",  "Sequence of characters (text)",         "'hello', \"world\"", "`str`",   "`String`"],
+        ["Boolean", "True or False",                          "True, False",      "`bool`",  "`Boolean`"],
+        ["None/Null","Absence of a value",                   "None, null",       "`None`",  "`null`/`undefined`"]
+      ]
+    },
+    {
+      "type": "code",
+      "language": "python",
+      "title": "All primitive types in Python",
+      "code": "# Integer\ncount = 100\nnegative = -42\nbig = 1_000_000   # underscores for readability\n\n# Float\nprice = 9.99\npi = 3.141592653589793\nscientific = 1.5e-10   # 0.00000000015\n\n# String\ngreeting = \"Hello\"\nmultiline = \"\"\"This spans\nmultiple lines\"\"\"\nformatted = f\"The price is ${price:.2f}\"  # f-string\n\n# Boolean\nis_active = True\nhas_errors = False\n# Note: True/False are actually 1/0 in Python\nprint(True + True)   # 2\n\n# None (absence of value)\nresult = None\nprint(result is None)   # True"
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "Type Conversion"
+    },
+    {
+      "type": "paragraph",
+      "text": "You often need to convert between types — for example, reading a number from user input (which is always a string) and doing math with it."
+    },
+    {
+      "type": "code",
+      "language": "python",
+      "title": "Explicit type conversion",
+      "code": "# String → int/float\nuser_input = \"42\"           # comes from input() as string\nnumber = int(user_input)     # 42 (int)\nvalue = float(\"3.14\")        # 3.14 (float)\n\n# int/float → string\nage = 25\nmessage = \"I am \" + str(age) + \" years old\"  # must convert!\n\n# int → float and vice versa\nx = 7\ny = float(x)       # 7.0\nz = int(3.99)      # 3 (truncates, does NOT round)\n\n# Boolean conversions (important to know!)\nprint(bool(0))     # False — zero is falsy\nprint(bool(1))     # True  — any non-zero is truthy\nprint(bool(\"\"))    # False — empty string is falsy\nprint(bool(\"hi\"))  # True  — non-empty string is truthy\nprint(bool([]))    # False — empty list is falsy\nprint(bool([1]))   # True  — non-empty list is truthy"
+    },
+    {
+      "type": "callout",
+      "variant": "warning",
+      "title": "Type Errors",
+      "text": "A common beginner mistake: `\"5\" + 3` crashes in Python with a `TypeError` because you can't add a string and an integer. You must explicitly convert: `int(\"5\") + 3` → `8`."
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "Static vs Dynamic Typing"
+    },
+    {
+      "type": "tabs",
+      "tabs": [
+        {
+          "label": "Dynamic Typing (Python)",
+          "content": "The type is associated with the **value**, not the variable. Variables can hold any type at any time. Type errors are caught at **runtime**.",
+          "code": "x = 5          # x is int\nx = \"hello\"    # x is now str — valid in Python\nx = [1, 2, 3]  # x is now list — still valid\n\n# Type errors appear when code runs:\nresult = x + 1  # TypeError: can only concatenate list (not \"int\") to list",
+          "language": "python"
+        },
+        {
+          "label": "Static Typing (Java/TypeScript)",
+          "content": "The type is associated with the **variable**. You declare the type upfront, and it cannot change. Type errors are caught at **compile time** — before the program runs.",
+          "code": "// TypeScript (JavaScript with types)\nlet x: number = 5;\nx = 10;        // OK — still a number\n// x = \"hello\"; // ERROR at compile time — Type 'string' is not assignable to type 'number'\n\nlet name: string = \"Alice\";\nlet active: boolean = true;\nlet items: number[] = [1, 2, 3];",
+          "language": "typescript"
+        }
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "Constants"
+    },
+    {
+      "type": "code",
+      "language": "python",
+      "title": "Constants (values that should not change)",
+      "code": "# Python convention: SCREAMING_SNAKE_CASE for constants\nMAX_SIZE = 1000\nPI = 3.14159\nAPI_BASE_URL = \"https://api.example.com\"\n\n# Python doesn't enforce immutability for constants\n# but the naming convention signals: don't change this\n\n# JavaScript — use const for true constants\nconst MAX_RETRIES = 3;\nconst GRAVITY = 9.81;\n// MAX_RETRIES = 5;  // Error: Assignment to constant variable"
+    },
+    {
+      "type": "key-points",
+      "points": [
+        "Variables are named memory slots that store values",
+        "The four primitive types: integer, float, string, boolean (plus null/None)",
+        "Use explicit conversion functions (`int()`, `str()`, `float()`) when changing types",
+        "In dynamically typed languages (Python, JS) types are checked at runtime; in statically typed languages (Java, TypeScript) at compile time",
+        "Use descriptive names and follow your language's naming convention (snake_case or camelCase)"
+      ]
+    },
+    {
+      "type": "quiz",
+      "questions": [
+        {
+          "question": "What will `int(3.99)` return in Python?",
+          "options": ["4 (rounds up)", "3 (truncates toward zero)", "Error", "4.0"],
+          "correct": 1,
+          "explanation": "int() truncates (cuts off) the decimal part — it does NOT round. int(3.99) = 3, int(-3.99) = -3. Use round() if you want rounding."
+        },
+        {
+          "question": "Which of the following values is 'falsy' in Python?",
+          "options": ["'0'", "1", "[]", "True"],
+          "correct": 2,
+          "explanation": "An empty list [] is falsy in Python. '0' is a non-empty string (truthy). 1 is truthy. True is truthy. Other falsy values: 0, \"\", {}, None, False."
+        }
+      ]
+    }
+  ]
+}
