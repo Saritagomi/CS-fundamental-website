@@ -1,0 +1,15 @@
+{
+  "slug": "programming-fundamentals",
+  "title": "Programming Fundamentals",
+  "icon": "💻",
+  "difficulty": "beginner",
+  "description": "Master the core building blocks every programmer needs: variables, control flow, functions, and collections.",
+  "prerequisites": ["computer-basics"],
+  "sections": [
+    { "slug": "what-is-programming",  "title": "What is Programming?",   "order": 1, "estimatedTime": "15 min" },
+    { "slug": "variables-data-types", "title": "Variables & Data Types", "order": 2, "estimatedTime": "25 min" },
+    { "slug": "control-flow",         "title": "Control Flow",           "order": 3, "estimatedTime": "30 min" },
+    { "slug": "functions",            "title": "Functions",              "order": 4, "estimatedTime": "30 min" },
+    { "slug": "arrays-objects",       "title": "Arrays & Objects",       "order": 5, "estimatedTime": "25 min" }
+  ]
+}

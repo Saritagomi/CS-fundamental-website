@@ -1,0 +1,38 @@
+{
+  "topics": [
+    {
+      "slug": "computer-basics",
+      "title": "Computer Basics",
+      "description": "Start here. Learn what computers are, how hardware and software work together, and how data is represented in binary.",
+      "icon": "🖥️",
+      "difficulty": "beginner",
+      "estimatedTime": "3 hours",
+      "color": "#3fb950",
+      "tags": ["hardware", "software", "binary", "fundamentals"],
+      "sections": [
+        { "slug": "introduction",       "title": "Introduction to Computing",    "order": 1, "estimatedTime": "15 min" },
+        { "slug": "hardware",           "title": "Computer Hardware",            "order": 2, "estimatedTime": "20 min" },
+        { "slug": "software",           "title": "Software & Operating Systems", "order": 3, "estimatedTime": "20 min" },
+        { "slug": "how-computers-work", "title": "How Computers Work",           "order": 4, "estimatedTime": "25 min" },
+        { "slug": "binary-data",        "title": "Binary & Data Representation", "order": 5, "estimatedTime": "25 min" }
+      ]
+    },
+    {
+      "slug": "programming-fundamentals",
+      "title": "Programming Fundamentals",
+      "description": "Master the universal building blocks of programming: variables, control flow, functions, and data structures.",
+      "icon": "💻",
+      "difficulty": "beginner",
+      "estimatedTime": "4 hours",
+      "color": "#58a6ff",
+      "tags": ["variables", "functions", "loops", "python", "javascript"],
+      "sections": [
+        { "slug": "what-is-programming",  "title": "What is Programming?",   "order": 1, "estimatedTime": "15 min" },
+        { "slug": "variables-data-types", "title": "Variables & Data Types", "order": 2, "estimatedTime": "25 min" },
+        { "slug": "control-flow",         "title": "Control Flow",           "order": 3, "estimatedTime": "30 min" },
+        { "slug": "functions",            "title": "Functions",              "order": 4, "estimatedTime": "30 min" },
+        { "slug": "arrays-objects",       "title": "Arrays & Objects",       "order": 5, "estimatedTime": "25 min" }
+      ]
+    }
+  ]
+}

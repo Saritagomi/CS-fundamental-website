@@ -1,0 +1,141 @@
+{
+  "slug": "control-flow",
+  "title": "Control Flow",
+  "topicSlug": "programming-fundamentals",
+  "order": 3,
+  "estimatedTime": "30 min",
+  "difficulty": "beginner",
+  "blocks": [
+    {
+      "type": "paragraph",
+      "text": "**Control flow** determines the order in which a program's statements execute. Without control flow, every program would just run top-to-bottom once and stop. With it, you can make decisions, repeat actions, and respond to different conditions."
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "Conditional Statements — if / elif / else"
+    },
+    {
+      "type": "paragraph",
+      "text": "Use conditionals to execute different code based on whether a condition is true or false."
+    },
+    {
+      "type": "code",
+      "language": "python",
+      "title": "if / elif / else in Python",
+      "code": "temperature = 22\n\nif temperature > 30:\n    print(\"It's hot — wear light clothes\")\nelif temperature > 20:\n    print(\"It's pleasant — enjoy the weather\")\nelif temperature > 10:\n    print(\"It's cool — bring a jacket\")\nelse:\n    print(\"It's cold — bundle up!\")\n\n# Output: It's pleasant — enjoy the weather\n\n# One-liner (ternary) — for simple cases\nstatus = \"adult\" if temperature >= 18 else \"minor\"\nprint(status)"
+    },
+    {
+      "type": "code",
+      "language": "javascript",
+      "title": "if / else if / else in JavaScript",
+      "code": "const score = 85;\n\nif (score >= 90) {\n  console.log(\"Grade: A\");\n} else if (score >= 80) {\n  console.log(\"Grade: B\");\n} else if (score >= 70) {\n  console.log(\"Grade: C\");\n} else {\n  console.log(\"Grade: F\");\n}\n// Output: Grade: B\n\n// Ternary operator\nconst pass = score >= 60 ? \"Pass\" : \"Fail\";\nconsole.log(pass);   // \"Pass\""
+    },
+    {
+      "type": "callout",
+      "variant": "info",
+      "title": "Comparison Operators",
+      "text": "`==` (equal), `!=` (not equal), `>` (greater), `<` (less), `>=` (greater or equal), `<=` (less or equal). In JavaScript, prefer `===` (strict equality, checks type too) over `==` (loose equality, with type coercion)."
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "Logical Operators — and, or, not"
+    },
+    {
+      "type": "code",
+      "language": "python",
+      "title": "Combining conditions",
+      "code": "age = 25\nhas_ticket = True\nis_banned = False\n\n# and — both must be True\nif age >= 18 and has_ticket:\n    print(\"Entry allowed\")\n\n# or — at least one must be True\nif age < 13 or age > 65:\n    print(\"Discount eligible\")\n\n# not — inverts the boolean\nif not is_banned:\n    print(\"Not banned — can enter\")\n\n# Combining multiple\nif age >= 18 and has_ticket and not is_banned:\n    print(\"Welcome to the event!\")\n# Output: Welcome to the event!"
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "Loops — Repeating Code"
+    },
+    {
+      "type": "paragraph",
+      "text": "Loops execute a block of code repeatedly. There are two fundamental loop types: **for loops** (iterate over a sequence) and **while loops** (repeat while a condition is true)."
+    },
+    {
+      "type": "tabs",
+      "tabs": [
+        {
+          "label": "for Loop",
+          "code": "# Iterating over a range of numbers\nfor i in range(5):          # 0, 1, 2, 3, 4\n    print(f\"Count: {i}\")\n\n# Iterating over a list\nfruits = [\"apple\", \"banana\", \"cherry\"]\nfor fruit in fruits:\n    print(fruit)\n\n# With index (enumerate)\nfor index, fruit in enumerate(fruits):\n    print(f\"{index}: {fruit}\")\n# 0: apple\n# 1: banana\n# 2: cherry\n\n# range(start, stop, step)\nfor n in range(0, 10, 2):   # 0, 2, 4, 6, 8\n    print(n)",
+          "language": "python"
+        },
+        {
+          "label": "while Loop",
+          "code": "# while loop — runs as long as condition is True\ncountdown = 5\nwhile countdown > 0:\n    print(f\"T-minus {countdown}\")\n    countdown -= 1           # countdown = countdown - 1\nprint(\"Liftoff!\")\n\n# Infinite loop with break\nattempts = 0\nwhile True:                  # runs forever...\n    attempts += 1\n    if attempts >= 3:        # ...until this break is hit\n        print(\"Too many attempts\")\n        break\n    print(f\"Attempt {attempts}\")",
+          "language": "python"
+        },
+        {
+          "label": "Loop Control",
+          "code": "# break — exit the loop immediately\nfor n in range(10):\n    if n == 5:\n        break               # stops at 5 — prints 0,1,2,3,4\n    print(n)\n\n# continue — skip the rest of this iteration\nfor n in range(10):\n    if n % 2 == 0:          # if n is even...\n        continue            # ...skip it\n    print(n)               # prints: 1, 3, 5, 7, 9\n\n# for/else — else runs only if loop completed without break\nfor n in range(5):\n    if n == 10:\n        break\nelse:\n    print(\"Loop completed without break\")  # this runs",
+          "language": "python"
+        }
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "Nested Control Flow"
+    },
+    {
+      "type": "code",
+      "language": "python",
+      "title": "Loops inside loops (nested iteration)",
+      "code": "# Multiplication table\nfor i in range(1, 4):        # i: 1, 2, 3\n    for j in range(1, 4):    # j: 1, 2, 3 (for each i)\n        print(f\"{i}×{j}={i*j}\", end=\"  \")\n    print()                  # newline after each row\n\n# Output:\n# 1×1=1  1×2=2  1×3=3  \n# 2×1=2  2×2=4  2×3=6  \n# 3×1=3  3×2=6  3×3=9  \n\n# Searching in a 2D grid\ngrid = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]\ntarget = 5\nfound = False\nfor row in grid:\n    for value in row:\n        if value == target:\n            found = True\n            break\n    if found:\n        break\nprint(f\"Found {target}: {found}\")   # Found 5: True"
+    },
+    {
+      "type": "callout",
+      "variant": "warning",
+      "title": "Infinite Loops",
+      "text": "A **while True** loop with no `break` condition will run forever, freezing your program. Always ensure your while loops have a guaranteed exit condition."
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "match / switch Statements"
+    },
+    {
+      "type": "code",
+      "language": "python",
+      "title": "Pattern matching (Python 3.10+)",
+      "code": "# Python 3.10+ structural pattern matching\nday = \"Monday\"\n\nmatch day:\n    case \"Monday\" | \"Tuesday\" | \"Wednesday\" | \"Thursday\" | \"Friday\":\n        print(\"Weekday\")\n    case \"Saturday\" | \"Sunday\":\n        print(\"Weekend\")\n    case _:                      # default case\n        print(\"Unknown day\")\n\n# JavaScript switch\n# switch (day) {\n#   case 'Monday': ...; break;\n#   default: ...\n# }"
+    },
+    {
+      "type": "key-points",
+      "points": [
+        "if/elif/else selects code paths based on boolean conditions",
+        "for loops iterate over sequences or ranges; while loops run until a condition becomes false",
+        "break exits a loop immediately; continue skips the current iteration",
+        "Logical operators: and (both true), or (either true), not (inverts)",
+        "In JavaScript, use === instead of == to avoid type coercion surprises"
+      ]
+    },
+    {
+      "type": "quiz",
+      "questions": [
+        {
+          "question": "What does this code print?\n```\nfor i in range(5):\n    if i == 3:\n        break\n    print(i)\n```",
+          "options": ["0 1 2 3 4", "0 1 2", "0 1 2 3", "1 2 3 4"],
+          "correct": 1,
+          "explanation": "range(5) produces 0,1,2,3,4. When i equals 3, break exits the loop. So only 0, 1, 2 are printed (3 triggers the break before print runs)."
+        },
+        {
+          "question": "Which statement correctly combines two conditions in Python?",
+          "options": [
+            "if x > 0 && x < 10:",
+            "if x > 0 AND x < 10:",
+            "if x > 0 and x < 10:",
+            "if (x > 0 & x < 10):"
+          ],
+          "correct": 2,
+          "explanation": "Python uses the keyword 'and' (lowercase) to combine boolean conditions. '&&' is used in JavaScript/Java/C, not Python."
+        }
+      ]
+    }
+  ]
+}

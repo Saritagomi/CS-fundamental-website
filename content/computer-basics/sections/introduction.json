@@ -1,0 +1,128 @@
+{
+  "slug": "introduction",
+  "title": "Introduction to Computing",
+  "topicSlug": "computer-basics",
+  "order": 1,
+  "estimatedTime": "15 min",
+  "difficulty": "beginner",
+  "blocks": [
+    {
+      "type": "paragraph",
+      "text": "A **computer** is an electronic device that processes data according to a set of instructions called a **program**. It can take input, process it, store results, and produce output — at extraordinary speed and accuracy."
+    },
+    {
+      "type": "callout",
+      "variant": "tip",
+      "title": "Core Idea",
+      "text": "Every computer — from a pocket calculator to a supercomputer — follows the same fundamental principle: **Input → Process → Output → Storage**."
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "A Brief History"
+    },
+    {
+      "type": "paragraph",
+      "text": "Modern computers evolved over centuries of mathematical and engineering breakthroughs. Understanding this timeline shows how far we've come."
+    },
+    {
+      "type": "table",
+      "headers": ["Era", "Key Development", "Impact"],
+      "rows": [
+        ["1800s", "Charles Babbage's Analytical Engine", "First concept of a programmable machine"],
+        ["1940s", "ENIAC — first general-purpose electronic computer", "Filled an entire room, used vacuum tubes"],
+        ["1950s", "Transistors replace vacuum tubes", "Computers became smaller and more reliable"],
+        ["1960s", "Integrated circuits (microchips)", "Further miniaturization, lower cost"],
+        ["1970s", "Microprocessor (Intel 4004)", "A whole CPU on a single chip"],
+        ["1980s", "Personal computers (IBM PC, Apple Mac)", "Computers enter homes and offices"],
+        ["1990s", "World Wide Web", "Global information sharing"],
+        ["2000s+", "Smartphones, cloud computing, AI", "Computing becomes ubiquitous"]
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "Types of Computers"
+    },
+    {
+      "type": "list",
+      "style": "unordered",
+      "items": [
+        { "label": "Supercomputer", "desc": "Extremely powerful, used for weather forecasting, nuclear simulations, scientific research" },
+        { "label": "Mainframe", "desc": "High-capacity systems used by banks and governments to process millions of transactions" },
+        { "label": "Server", "desc": "Provides services to other computers on a network — web, database, email servers" },
+        { "label": "Personal Computer (PC)", "desc": "Desktops and laptops for individual use — the most common form" },
+        { "label": "Embedded System", "desc": "Computers built into devices: washing machines, cars, medical devices, smart TVs" },
+        { "label": "Smartphone / Tablet", "desc": "Pocket-sized computers with touchscreens, sensors, and connectivity" }
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "The Four Core Functions"
+    },
+    {
+      "type": "table",
+      "headers": ["Function", "Description", "Hardware Responsible"],
+      "rows": [
+        ["Input",   "Receiving data from the outside world", "Keyboard, mouse, microphone, camera, sensors"],
+        ["Processing", "Performing calculations and logic on data", "CPU (Central Processing Unit)"],
+        ["Storage",  "Holding data temporarily or permanently", "RAM (temporary), SSD/HDD (permanent)"],
+        ["Output",  "Communicating results to the user", "Monitor, speakers, printer"]
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "info",
+      "title": "Did You Know?",
+      "text": "The smartphone in your pocket is millions of times more powerful than the computers that guided the Apollo moon missions in 1969."
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "What Makes Computers Special?"
+    },
+    {
+      "type": "list",
+      "style": "unordered",
+      "items": [
+        "**Speed** — Modern CPUs execute billions of instructions per second",
+        "**Accuracy** — Computers make zero arithmetic errors (bugs come from programmer instructions, not the machine)",
+        "**Diligence** — Unlike humans, computers never get tired or lose focus",
+        "**Versatility** — The same hardware can run games, spreadsheets, AI models, or fly a plane",
+        "**Storage** — Terabytes of data stored and retrieved in milliseconds"
+      ]
+    },
+    {
+      "type": "key-points",
+      "points": [
+        "A computer processes data through Input → Process → Output → Storage",
+        "Every computer, regardless of size, follows this same model",
+        "Modern computers evolved from room-sized machines in the 1940s to chips smaller than your fingernail",
+        "Computers are fast, accurate, diligent, and versatile — but only do exactly what they're programmed to do"
+      ]
+    },
+    {
+      "type": "quiz",
+      "questions": [
+        {
+          "question": "Which component is responsible for processing data in a computer?",
+          "options": ["RAM", "CPU", "Hard Drive", "Monitor"],
+          "correct": 1,
+          "explanation": "The CPU (Central Processing Unit) is the 'brain' of the computer responsible for executing instructions and processing data."
+        },
+        {
+          "question": "What is the correct order of the four core computer functions?",
+          "options": [
+            "Output → Process → Input → Storage",
+            "Input → Process → Output → Storage",
+            "Process → Input → Storage → Output",
+            "Storage → Input → Process → Output"
+          ],
+          "correct": 1,
+          "explanation": "The standard model is: Input (receive data) → Process (CPU calculates) → Output (show results) → Storage (save for later)."
+        }
+      ]
+    }
+  ]
+}

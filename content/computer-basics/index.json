@@ -1,0 +1,15 @@
+{
+  "slug": "computer-basics",
+  "title": "Computer Basics",
+  "icon": "🖥️",
+  "difficulty": "beginner",
+  "description": "Understand what computers are, how they work, and how data is stored and processed.",
+  "prerequisites": [],
+  "sections": [
+    { "slug": "introduction",       "title": "Introduction to Computing",    "order": 1, "estimatedTime": "15 min" },
+    { "slug": "hardware",           "title": "Computer Hardware",            "order": 2, "estimatedTime": "20 min" },
+    { "slug": "software",           "title": "Software & Operating Systems", "order": 3, "estimatedTime": "20 min" },
+    { "slug": "how-computers-work", "title": "How Computers Work",           "order": 4, "estimatedTime": "25 min" },
+    { "slug": "binary-data",        "title": "Binary & Data Representation", "order": 5, "estimatedTime": "25 min" }
+  ]
+}

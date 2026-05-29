@@ -1,0 +1,147 @@
+{
+  "slug": "what-is-programming",
+  "title": "What is Programming?",
+  "topicSlug": "programming-fundamentals",
+  "order": 1,
+  "estimatedTime": "15 min",
+  "difficulty": "beginner",
+  "blocks": [
+    {
+      "type": "paragraph",
+      "text": "**Programming** is the process of giving a computer a precise set of instructions to follow in order to solve a problem or perform a task. A **program** is that set of instructions, written in a **programming language** that can be translated into machine code a CPU can execute."
+    },
+    {
+      "type": "callout",
+      "variant": "tip",
+      "title": "Mental Model",
+      "text": "Think of programming like writing a very precise recipe. The computer follows it exactly — no improvising, no common sense. Every step must be spelled out explicitly. If your recipe says 'add flour' but not how much, the recipe fails."
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "Why Learn to Program?"
+    },
+    {
+      "type": "list",
+      "style": "unordered",
+      "items": [
+        "**Automation** — Turn repetitive manual tasks into one-click scripts",
+        "**Problem Solving** — Break down complex problems into smaller, solvable steps",
+        "**Career Opportunities** — Software development is one of the highest-demand careers worldwide",
+        "**Understanding Technology** — Everything runs on code: your bank, your phone, your car",
+        "**Creativity** — Build apps, games, websites, AI tools, automations"
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "Your First Program"
+    },
+    {
+      "type": "paragraph",
+      "text": "By tradition, the first program in any language prints 'Hello, World!' to the screen. Here it is in several languages to show how syntax differs but logic stays the same:"
+    },
+    {
+      "type": "tabs",
+      "tabs": [
+        {
+          "label": "Python",
+          "code": "print(\"Hello, World!\")",
+          "language": "python"
+        },
+        {
+          "label": "JavaScript",
+          "code": "console.log(\"Hello, World!\");",
+          "language": "javascript"
+        },
+        {
+          "label": "Java",
+          "code": "public class HelloWorld {\n    public static void main(String[] args) {\n        System.out.println(\"Hello, World!\");\n    }\n}",
+          "language": "java"
+        },
+        {
+          "label": "C",
+          "code": "#include <stdio.h>\nint main() {\n    printf(\"Hello, World!\\n\");\n    return 0;\n}",
+          "language": "c"
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "info",
+      "title": "Observation",
+      "text": "Python needs 1 line. Java needs 5 lines. Both produce identical output. This illustrates the trade-off between **simplicity** (Python) and **explicitness/performance control** (Java, C)."
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "The Problem-Solving Process"
+    },
+    {
+      "type": "paragraph",
+      "text": "Programming is really a structured approach to problem solving. Before writing a single line of code, experienced developers follow a mental process:"
+    },
+    {
+      "type": "roadmap",
+      "items": [
+        {
+          "title": "1. Understand the Problem",
+          "status": "done",
+          "description": "What exactly needs to be solved? What are the inputs? What should the outputs look like? What are the edge cases?"
+        },
+        {
+          "title": "2. Plan the Solution (Algorithm)",
+          "status": "done",
+          "description": "Design a step-by-step procedure (algorithm) to solve the problem. You can write it in plain English (pseudocode) first."
+        },
+        {
+          "title": "3. Write the Code",
+          "status": "current",
+          "description": "Translate your algorithm into a programming language. Focus on correctness first, then clarity, then performance."
+        },
+        {
+          "title": "4. Test & Debug",
+          "status": "upcoming",
+          "description": "Run the program with various inputs. Find bugs (incorrect behavior) and fix them. Test edge cases."
+        },
+        {
+          "title": "5. Refine",
+          "status": "upcoming",
+          "description": "Improve readability, performance, and maintainability. Good code is read far more often than it's written."
+        }
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "Choosing a First Language"
+    },
+    {
+      "type": "table",
+      "headers": ["Language", "Best For", "Why Start Here"],
+      "rows": [
+        ["Python",     "Beginners, data science, scripting, AI", "Readable syntax, minimal boilerplate, huge community"],
+        ["JavaScript", "Web development, front-end, Node.js",   "Runs in every browser, immediate visual feedback"],
+        ["Java",       "Enterprise, Android, learning OOP",      "Strong typing teaches good habits; widely used"],
+        ["C",          "Systems programming, embedded",          "Teaches how computers really work (memory, pointers)"],
+        ["Go",         "Backend services, DevOps tools",         "Simple syntax, fast compilation, great concurrency"]
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "warning",
+      "title": "The Language Trap",
+      "text": "Don't spend months choosing a language. **The concepts you learn are transferable.** Loops, functions, data structures, algorithms — these exist in every language. Master the fundamentals in any language, then the rest comes easily."
+    },
+    {
+      "type": "key-points",
+      "points": [
+        "Programming is giving a computer explicit, precise instructions to solve a problem",
+        "All languages have the same core concepts: variables, control flow, functions, data structures",
+        "The syntax differs between languages but the logic stays the same",
+        "Problem-solving process: understand → plan → code → test → refine",
+        "Pick any beginner-friendly language (Python or JavaScript) and start — switching later is easy"
+      ]
+    }
+  ]
+}

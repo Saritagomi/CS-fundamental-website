@@ -1,0 +1,157 @@
+{
+  "slug": "hardware",
+  "title": "Computer Hardware",
+  "topicSlug": "computer-basics",
+  "order": 2,
+  "estimatedTime": "20 min",
+  "difficulty": "beginner",
+  "blocks": [
+    {
+      "type": "paragraph",
+      "text": "**Hardware** refers to the physical components of a computer — the parts you can actually touch. Every piece of hardware has a specific role in the system, and they all work together orchestrated by the CPU."
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "The CPU — Brain of the Computer"
+    },
+    {
+      "type": "paragraph",
+      "text": "The **Central Processing Unit (CPU)** executes program instructions. It performs arithmetic, logic, and control operations billions of times per second."
+    },
+    {
+      "type": "table",
+      "headers": ["Component", "What It Does"],
+      "rows": [
+        ["ALU (Arithmetic Logic Unit)", "Performs math (+, -, ×, ÷) and logical comparisons (AND, OR, NOT)"],
+        ["Control Unit (CU)", "Fetches and decodes instructions, directs other components"],
+        ["Registers", "Tiny ultra-fast storage inside the CPU for data being actively used"],
+        ["Cache (L1/L2/L3)", "Fast memory built into the CPU to reduce RAM access time"]
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "info",
+      "title": "CPU Speed",
+      "text": "CPU speed is measured in **GHz (gigahertz)** — a 3.5 GHz CPU can execute 3.5 billion cycles per second. Modern CPUs have **multiple cores**, allowing them to run several tasks simultaneously."
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "Memory — RAM vs Storage"
+    },
+    {
+      "type": "paragraph",
+      "text": "Computers have two fundamentally different types of memory, each with a distinct purpose:"
+    },
+    {
+      "type": "tabs",
+      "tabs": [
+        {
+          "label": "RAM (Primary Memory)",
+          "content": "**RAM (Random Access Memory)** is temporary, fast memory used while the computer is running. When you open a browser, its data loads into RAM. When you shut down, RAM is wiped completely. Modern computers typically have 8–64 GB of RAM."
+        },
+        {
+          "label": "SSD / HDD (Secondary Storage)",
+          "content": "**Solid State Drives (SSD)** and **Hard Disk Drives (HDD)** provide permanent storage. Your files, OS, and applications live here even when power is off. SSDs are much faster than HDDs — typically 10–100× — but were historically more expensive."
+        },
+        {
+          "label": "Cache Memory",
+          "content": "**Cache** is a small amount of extremely fast memory built directly into the CPU. The processor checks cache before RAM. **L1 cache** (fastest, ~32–256KB per core), **L2** (~256KB–4MB), **L3** (shared, ~4–64MB). The hierarchy trades speed for size."
+        }
+      ]
+    },
+    {
+      "type": "table",
+      "headers": ["Memory Type", "Speed", "Capacity", "Persistent?", "Example Size"],
+      "rows": [
+        ["CPU Register",  "~1 cycle",    "Bytes",    "No",  "64 bytes"],
+        ["L1 Cache",      "~4 cycles",   "KB",       "No",  "64 KB/core"],
+        ["L2 Cache",      "~12 cycles",  "MB",       "No",  "512 KB/core"],
+        ["RAM",           "~100 cycles", "GB",       "No",  "16 GB"],
+        ["SSD",           "~50,000ns",   "TB",       "Yes", "1 TB"],
+        ["HDD",           "~5,000,000ns","TB",       "Yes", "2 TB"]
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "The Motherboard"
+    },
+    {
+      "type": "paragraph",
+      "text": "The **motherboard** is the main circuit board that connects all components. It hosts the CPU socket, RAM slots, PCIe slots (for GPU and other cards), SATA ports (for drives), and the BIOS/UEFI chip."
+    },
+    {
+      "type": "callout",
+      "variant": "tip",
+      "title": "The Bus",
+      "text": "Components communicate over **buses** — electrical pathways on the motherboard. The **front-side bus** connects CPU to RAM; **PCIe** connects CPU to GPU and other expansion cards. Bus width (in bits) and speed determine data transfer rates."
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "The GPU — Graphics Processing Unit"
+    },
+    {
+      "type": "paragraph",
+      "text": "A **GPU** was originally designed to render graphics quickly. It has thousands of small cores designed to process many operations in parallel — which makes GPUs ideal not just for gaming, but for **machine learning**, scientific simulation, and video encoding."
+    },
+    {
+      "type": "table",
+      "headers": ["", "CPU", "GPU"],
+      "rows": [
+        ["Cores",      "4–32 powerful cores",          "Thousands of small cores"],
+        ["Best For",   "Sequential logic, complex tasks","Parallel computation, matrices"],
+        ["Example",    "Intel Core i9, AMD Ryzen 9",    "NVIDIA RTX 4090, AMD RX 7900"],
+        ["Use Case",   "Running your OS, browser, code","Gaming, AI training, video rendering"]
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "Input & Output Devices"
+    },
+    {
+      "type": "list",
+      "style": "unordered",
+      "items": [
+        { "label": "Input", "desc": "Keyboard, mouse, touchscreen, webcam, microphone, scanner, sensors" },
+        { "label": "Output", "desc": "Monitor, speakers, printer, projector" },
+        { "label": "Both (I/O)", "desc": "Touchscreen, network interface card (NIC), USB devices" }
+      ]
+    },
+    {
+      "type": "key-points",
+      "points": [
+        "The CPU contains an ALU (math/logic), Control Unit, registers, and cache",
+        "RAM is fast but temporary — it's lost when power is removed",
+        "SSDs are faster than HDDs; cache is faster than both but much smaller",
+        "The motherboard is the backbone that connects all components via buses",
+        "GPUs excel at parallel computation — originally for graphics, now also for AI"
+      ]
+    },
+    {
+      "type": "quiz",
+      "questions": [
+        {
+          "question": "Which type of memory loses all its data when the computer is turned off?",
+          "options": ["SSD", "HDD", "RAM", "ROM"],
+          "correct": 2,
+          "explanation": "RAM (Random Access Memory) is volatile — it only holds data while powered. When you shut down, everything in RAM is lost."
+        },
+        {
+          "question": "Why are GPUs used for machine learning and AI training?",
+          "options": [
+            "They have a higher clock speed than CPUs",
+            "They have thousands of cores suited for parallel computation",
+            "They have more RAM than CPUs",
+            "They consume less power"
+          ],
+          "correct": 1,
+          "explanation": "GPUs have thousands of small cores that can process many operations simultaneously. Neural network training involves massive parallel matrix operations — exactly what GPUs excel at."
+        }
+      ]
+    }
+  ]
+}

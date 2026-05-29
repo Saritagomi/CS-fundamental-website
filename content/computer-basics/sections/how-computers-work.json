@@ -1,0 +1,151 @@
+{
+  "slug": "how-computers-work",
+  "title": "How Computers Work",
+  "topicSlug": "computer-basics",
+  "order": 4,
+  "estimatedTime": "25 min",
+  "difficulty": "beginner",
+  "blocks": [
+    {
+      "type": "paragraph",
+      "text": "At the lowest level, everything a computer does comes down to a CPU fetching instructions from memory, decoding them, and executing them — billions of times per second. Understanding this cycle unlocks how programs actually run."
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "The Fetch-Decode-Execute Cycle"
+    },
+    {
+      "type": "paragraph",
+      "text": "The CPU continuously runs through three steps for every instruction:"
+    },
+    {
+      "type": "roadmap",
+      "items": [
+        {
+          "title": "1. Fetch",
+          "status": "done",
+          "description": "The Control Unit reads the next instruction from memory (at the address stored in the Program Counter register). The PC then increments to point to the next instruction."
+        },
+        {
+          "title": "2. Decode",
+          "status": "done",
+          "description": "The instruction is decoded — the Control Unit figures out what operation to perform (ADD, LOAD, STORE, JUMP, etc.) and which operands (data values or addresses) are involved."
+        },
+        {
+          "title": "3. Execute",
+          "status": "current",
+          "description": "The ALU carries out the operation. The result is written to a register or back to memory. If it's a JUMP instruction, the Program Counter is updated to a new address."
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "info",
+      "title": "Clock Speed",
+      "text": "The CPU is synchronized by a **clock signal** that ticks billions of times per second (GHz). Each tick can advance the pipeline by one step. A 3 GHz CPU performs roughly 3 billion cycles per second."
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "The Memory Hierarchy"
+    },
+    {
+      "type": "paragraph",
+      "text": "Accessing data from different types of memory takes very different amounts of time. The CPU is designed to leverage faster (and smaller) memory as much as possible:"
+    },
+    {
+      "type": "table",
+      "headers": ["Level", "Type", "Access Time", "Size"],
+      "rows": [
+        ["1st", "CPU Registers",       "< 1 ns",   "< 1 KB"],
+        ["2nd", "L1 Cache",            "~1 ns",    "32–512 KB"],
+        ["3rd", "L2 Cache",            "~5 ns",    "512 KB–4 MB"],
+        ["4th", "L3 Cache",            "~20 ns",   "4–64 MB"],
+        ["5th", "RAM",                 "~100 ns",  "4–128 GB"],
+        ["6th", "SSD",                 "~50 µs",   "256 GB – 4 TB"],
+        ["7th", "HDD",                 "~5 ms",    "500 GB – 20 TB"]
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "tip",
+      "title": "Why This Matters for Programmers",
+      "text": "Accessing RAM is ~100× slower than L1 cache. Writing code that uses **cache-friendly** data access patterns (sequential array access instead of random pointer chasing) can make programs dramatically faster."
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "The Boot Process"
+    },
+    {
+      "type": "paragraph",
+      "text": "When you press the power button, a carefully orchestrated sequence loads the operating system from storage into RAM:"
+    },
+    {
+      "type": "list",
+      "style": "ordered",
+      "items": [
+        "**Power On** — Electrical power reaches the motherboard",
+        "**BIOS/UEFI** — Firmware stored in a ROM chip runs first, performs POST (Power-On Self Test) to check hardware",
+        "**Boot Loader Found** — BIOS locates the boot device (SSD) and loads the bootloader (GRUB, Windows Boot Manager)",
+        "**OS Kernel Loaded** — The bootloader loads the OS kernel into RAM",
+        "**Kernel Initializes** — Sets up memory management, device drivers, file systems",
+        "**User Space Starts** — The OS launches system services and the login interface"
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "How Programs Are Loaded and Run"
+    },
+    {
+      "type": "paragraph",
+      "text": "When you double-click an application, the OS performs several steps before your first line of code executes:"
+    },
+    {
+      "type": "accordion",
+      "items": [
+        {
+          "title": "1. File Read — OS reads the executable from disk",
+          "content": "The OS reads the binary file (EXE, ELF, Mach-O) from storage. This file contains the machine code instructions plus metadata about how to load it."
+        },
+        {
+          "title": "2. Memory Allocation — OS allocates address space",
+          "content": "The OS creates a new process and allocates virtual memory regions: code segment (instructions), data segment (global variables), stack (local variables, function calls), and heap (dynamic memory)."
+        },
+        {
+          "title": "3. Linking — Dynamic libraries are connected",
+          "content": "The dynamic linker connects your program to shared libraries (DLLs on Windows, .so on Linux). This lets many programs share the same copy of common code (like the C runtime library)."
+        },
+        {
+          "title": "4. CPU Starts Executing",
+          "content": "The OS sets the Program Counter to the entry point of your program (typically main()). The fetch-decode-execute cycle begins, and your program runs."
+        }
+      ]
+    },
+    {
+      "type": "key-points",
+      "points": [
+        "The CPU runs the Fetch-Decode-Execute cycle for every instruction",
+        "Cache memory dramatically reduces the time the CPU spends waiting for data",
+        "The memory hierarchy trades speed for capacity at each level",
+        "The boot process goes: power on → BIOS → bootloader → kernel → user space",
+        "Running a program involves: read from disk → allocate memory → link libraries → execute"
+      ]
+    },
+    {
+      "type": "interview",
+      "questions": [
+        {
+          "question": "What happens when you press the power button on a computer?",
+          "answer": "Power reaches the motherboard. The BIOS/UEFI firmware runs, performs POST (hardware self-test), then locates the bootloader on the boot device. The bootloader loads the OS kernel into RAM. The kernel initializes hardware drivers, memory management, and file systems. Finally, user-space processes (login screen, desktop) are launched."
+        },
+        {
+          "question": "Why is cache memory important for CPU performance?",
+          "answer": "RAM access takes ~100 nanoseconds, while L1 cache takes ~1 ns. Without cache, the CPU would sit idle 99% of the time waiting for data. Cache stores recently used data closer to the CPU cores. The hit rate (fraction of accesses served from cache) dramatically impacts overall performance — modern CPUs have multi-level caches (L1/L2/L3) to maximize hits."
+        }
+      ]
+    }
+  ]
+}
